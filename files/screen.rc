@@ -1,0 +1,2 @@
+hardstatus alwayslastline "%{+r} %-w%{+bu I}%n-%t%{-}%+w %= %{+ b}%11` %{-}%D %d %LM %{+b I}%c "
+
