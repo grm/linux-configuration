@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Common soft
 sudo apt-get install git chromium-browser fish emacs-nox org-mode screen curl tree
 cp files/screen.rc ~/.screen.rc
