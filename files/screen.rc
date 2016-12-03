@@ -1,2 +1,40 @@
-hardstatus alwayslastline "%{+r} %-w%{+bu I}%n-%t%{-}%+w %= %{+ b}%11` %{-}%D %d %LM %{+b I}%c "
+startup_message off
+defutf8 on
+
+
+#hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+#hardstatus alwayslastline "%{+r} %-w%{+bu I}%n-%t%{-}%+w %= %{+ b}%11` %{-}%D %d %LM %{+b I}%c "
+#hardstatus alwayslastline '%{= kG}%{C}Screen: %{c}%{= kG}[%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{C} %d-%m %{W}%c %{g}]'
+#hardstatus alwayslastline '%{= G}[ %{G}%H %{g}][%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}][ %{B}%Y-%m-%d %{W}%c:%s %{g}]'
+
+
+
+# add CPU idle/sustem/user/interrupt stats
+#backtick 100 5 5 tail -1 /var/tmp/vermaden-stats-top
+#caption always '%{= wk} %= %100` %='
+backtick 1 60 60 $HOME/bin/get_uptime
+backtick 2 60 60 $HOME/bin/get_cputemp temp1
+backtick 3 60 60 $HOME/bin/get_mem
+#backtick 4 6000 6000 $HOME/bin/get_totalmem
+backtick 5 60 60 $HOME/bin/get_swap
+#backtick 6 6000 6000 $HOME/bin/get_totalswap
+backtick 7 600 600 $HOME/bin/get_updates
+backtick 8 60 60 $HOME/bin/get_batterycharge
+backtick 9 5 5 $HOME/bin/get_cpufreq
+backtick 10 60 60 $HOME/bin/get_ethinfo
+#backtick 11 60 60 $HOME/bin/get_ethipwifi 
+backtick 12 60 60 $HOME/bin/get_spacehome 
+backtick 13 60 60 $HOME/bin/get_spaceroot
+backtick 14 60000 60000 $HOME/bin/get_header
+
+#backtick 5 60 60 $HOME/bin/get_volume PCM
+#backtick 6 60 60 $HOME/bin/get_gmail
+#backtick 8 60 60 $HOME/bin/get_citytemp | grep Temperature | awk '{print $3}'
+
+
+
+caption always "%w"
+hardstatus on
+hardstatus alwayslastline
+hardstatus string " %14`  %H %= [ %1` ] [ %9` ] [ %2` ] [ %3` ] [ %5` ] [ %13` ] [ %12` ]%10`[ %7` ] [ %8` ] %c %d/%m/%Y" # ablack+cyan+normal+white selected
 

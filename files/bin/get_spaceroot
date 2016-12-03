@@ -1,0 +1,4 @@
+#!/bin/bash
+SPACE=` df -h / | tail -n 1 | awk '//{print $3"/"$2" ("$5")"}'`
+
+echo -e "\uF0A0  $SPACE"

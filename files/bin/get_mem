@@ -1,0 +1,3 @@
+#!/bin/bash                                                                                                                                                             
+MEM=`free -h | grep 'Mem' | awk '{print $3 "/" $2}'`
+echo -e "\uF493  $MEM"

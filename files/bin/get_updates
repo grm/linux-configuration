@@ -1,0 +1,4 @@
+#!/bin/bash
+PACKAGES=`apt-get upgrade -s |grep -P '^\d+ upgraded'|cut -d" " -f1`
+
+echo -e "\uF487  $PACKAGES"

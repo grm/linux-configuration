@@ -1,0 +1,4 @@
+#!/bin/bash
+UPTIME=`uptime | awk '//{print $3}'`
+echo -e "\uF017  ${UPTIME}"
+#echo -e "\uF017  ${UPTIME::-1}"

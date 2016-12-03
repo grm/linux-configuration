@@ -1,0 +1,3 @@
+#!/bin/bash
+IP=`ifconfig enp4s0 | grep "inet addr" | awk '//{print $2}' | sed 's/addr://'`
+echo -e "\uF0E8  $IP"

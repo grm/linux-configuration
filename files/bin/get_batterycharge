@@ -1,0 +1,11 @@
+#!/bin/bash
+#upower -e to find string
+PERCENT=`upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep 'percentage' | awk '//{print $2}'`
+STATE=`upower -i /org/freedesktop/UPower/devices/battery_BAT1 | grep 'state:' | awk '//{print $2}'`
+
+
+STATUS=$(case $STATE in
+  "discharging") echo -e '\uF242' ;;
+  *) echo -e '\uF492' ;;
+esac)
+echo "$STATUS  $PERCENT"

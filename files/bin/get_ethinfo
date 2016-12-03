@@ -1,0 +1,20 @@
+#!/bin/bash
+
+eth_state=`cat /sys/class/net/enp4s0/operstate`
+if [ $eth_state == "up" ]; then
+	IP_ETH=`ifconfig enp4s0 | grep "inet addr" | awk '//{print $2}' | sed 's/addr://'`
+	DOWN_ETH=`ifconfig enp4s0 | awk '/RX bytes/{print $3 $4}'`
+	UP_ETH=`ifconfig enp4s0 | awk '/RX bytes/{print $7 $8}'`
+	echo -e " [ \uF424  $IP_ETH  \uF409  ${DOWN_ETH:1:-1}  \uF40A  ${UP_ETH:1:-1} ] "
+fi
+
+wifi_state=`cat /sys/class/net/wlp5s0/operstate`
+if [ $wifi_state == "up" ]; then
+	if [ $eth_state != "up" ]; then
+		echo " "
+	fi
+	IP_WIFI=`ifconfig wlp5s0 | grep "inet addr" | awk '//{print $2}' | sed 's/addr://'`
+	DOWN_WIFI=`ifconfig wlp5s0 | awk '/RX bytes/{print $3 $4}'`
+	UP_WIFI=`ifconfig wlp5s0 | awk '/RX bytes/{print $7 $8}'`
+	echo -e "[ \uF424  $IP_WIFI  \uF409  ${DOWN_WIFI:1:-1}  \uF40A  ${UP_WIFI:1:-1} ] "
+fi

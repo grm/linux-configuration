@@ -1,0 +1,3 @@
+#!/bin/bash                                                                                                                                                             
+SWAP=`free -h | grep Swap | awk '{print $3 "/" $2}'`
+echo -e "\uF045  $SWAP"
