@@ -44,3 +44,24 @@ echo "REMINDER"
 echo " * add current user to docker group"
 echo " * change default shell to fish in /etc/passwd"
 
+
+sudo apt-get install ppa-purge
+
+#Battery management
+sudo apt install tlp tp-smapi-dkms acpi-call-dkms
+sudo tlp start
+
+#Firewall
+sudo apt-get install gufw
+sudo ufw enable
+
+#Cleaning tool
+#sudo apt-get install bleachbit
+
+
+# Conky manager
+# themes ici : http://www.mediafire.com/download/icvmpzhlk7vgejt/default-themes-extra-1.cmtp.7z http://www.mediafire.com/download/9toamc8nkocu5b2/Jesse_Supreme_conkys.cmtp.7z http://www.mediafire.com/download/a4mqdh4jw052tyt/themepack_supreme_extra.cmtp.7z
+#sudo add-apt-repository ppa:teejee2008/ppa
+#sudo apt-get update
+#sudo apt-get install conky-manager
+
