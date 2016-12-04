@@ -1,4 +1,4 @@
 #!/bin/bash
-UPTIME=`uptime | awk '//{print $3}'`
+UPTIME=`uptime | awk '//{print $3}' | sed 's/,//'`
 echo -e "\uF017  ${UPTIME}"
 #echo -e "\uF017  ${UPTIME::-1}"
